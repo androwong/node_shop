@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+   <!-- calendar Js -->
+   <script src="calendar/js/vendors.min.js" type="text/javascript"></script>
+   <script src="calendar/vendors/fullcalendar/lib/jquery-ui.min.js"></script>
+   <script src="calendar/vendors/fullcalendar/lib/moment.min.js"></script>
+   <script src="calendar/vendors/fullcalendar/js/fullcalendar.min.js"></script>
+   <script src="calendar/js/plugins.js" type="text/javascript"></script>
+   <script src="calendar/js/custom/custom-script.js" type="text/javascript"></script>
+   <script src="calendar/js/scripts/app-calendar.js" type="text/javascript"></script>
+   <!-- bxSlider Js -->
+   <script src="bxslider/js/4.2.15/jquery.bxslider.min.js"></script>
+   <!-- weather Js -->
+   <script src="weather/js/skycons.js"></script>
+   
+  
+  <!-- bxslider CSS -->
+  <link href="bxslider/css/4.2.15/jquery.bxslider.min.css" rel="stylesheet" />
+  <!-- font-awesome CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- bootstrap CSS-->
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+  <!-- weather CSS-->
+  <link rel="stylesheet" type="text/css" href="weather/css/weather.css">
+  <!-- calendar CSS-->
+  <link rel="stylesheet" type="text/css" href="calendar/vendors/vendors.min.css">
+  <link rel="stylesheet" type="text/css" href="calendar/vendors/flag-icon/css/flag-icon.min.css">
+  <link rel="stylesheet" type="text/css" href="calendar/vendors/fullcalendar/css/fullcalendar.min.css">
+  <link rel="stylesheet" type="text/css" href="calendar/css/themes/horizontal-menu-template/materialize.css">
+  <link rel="stylesheet" type="text/css" href="calendar/css/themes/horizontal-menu-template/style.css">
+  <link rel="stylesheet" type="text/css" href="calendar/css/layouts/style-horizontal.css">
+  <link rel="stylesheet" type="text/css" href="calendar/css/pages/app-calendar.css">
+  <link rel="stylesheet" type="text/css" href="calendar/css/custom/custom.css">
+  <!-- custom CSS-->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+  <div class="container-fluid wrapper-bg">
+    <!-- header-->
+    <div class="row">
+      <div class="header">
+          <div class="h_title">DashBoard</div>
+          <div class="btn btn-info login-btn">LogIn</div>
+      </div>
+    </div> 
+    <!-- Slider, News, Announcements -->
+    <div class="row margin-top-20">
+      <div class="col-md-6 col-xs-6 padding-0">
+        <div class="box" id="slider">
+          <ul class="bxslider">
+            <li><img src="image/img1.jpg" /></li>
+            <li><img src="image/img2.jpg" /></li>
+            <li><img src="image/img3.jpg" /></li>
+          </ul>
+        </div>
+      </div> 
+      <div class="col-md-3 col-xs-3">
+        <div class="box" id="news">
+          <div class="inbox_people">
+              <div class="inbox_chat" id="article-box">
+              </div> 
+          </div>
+        </div>
+      </div>   
+      <div class="col-md-3 col-xs-3 anno-bg">
+        <div class="box" id="sticky">
+          <div class="anno-bk1">
+            <div class="anno-bk1-ti">Announcements</div> 
+            <div class="anno-bk1-con">
+              <a href="javascript:validateUser()"><i class="fa fa-pencil margin-right-10"></i></a>
+              <a href="javascript:commentSave()"><i class="fa fa-save"></i></a>
+            </div> 
+          </div>
+          <textarea id="comment" name="comment" cols="5" rows="20" disabled="disabled"></textarea>
+        </div>
+      </div>
+    </div>   
+    <!-- Weather, Calendar -->
+    <div class="row">
+        <div class="wrap-box col-md-6 col-xs-6 margin-top-15 margin-bottom-15" id="pos-4">
+          <div class="box" id="weather">
+            <div class="w3ls-weather-agileinfo"> 
+                <div class="weather-left">
+                    <div class="weather-left-text">
+                      <h4>London, GB</h4>
+                      <h5 id="showDate"></h5>
+                    </div>
+                    <ul class="report">
+                      <li><a href="#" id="today_cel"></a></li>
+                      <li><a href="#" id="today_fa"></a></li>
+                    </ul>
+                  </div>
+                  <div class="weather-right">
+                    <ul>
+                      <li>
+                        <figure class="icons">
+                          <canvas class="today_weather" width="40" height="40"></canvas>
+                        </figure>
+                        <div class="weather-text"><h4 id="today_temp"></h4></div>
+                        <div class="clear"></div>
+                      </li>
+                      <li>
+                        <figure class="icons">
+                          <canvas class="list_weather1" width="40" height="40" id="partly-cloudy-day"></canvas>
+                        </figure>
+                        <div class="weather-text">
+                          <h4 id="list_day1"></h4>
+                          <h5 id="list_cel1"></h5>
+                        </div>
+                        <div class="clear"></div>
+                      </li>
+                      <li>
+                        <figure class="icons">
+                          <canvas class="list_weather2" width="40" height="40" id="cloudy"></canvas>
+                        </figure>
+                        <div class="weather-text">
+                          <h4 id="list_day2"></h4>
+                          <h5 id="list_cel2"></h5>
+                        </div>
+                        <div class="clear"></div>
+                      </li>
+                      <li>
+                        <figure class="icons">
+                          <canvas class="list_weather3" width="40" height="40"></canvas>
+                        </figure>
+                        <div class="weather-text">
+                          <h4 id="list_day3"></h4>
+                          <h5 id="list_cel3"></h5>
+                        </div>
+                        <div class="clear"></div>
+                      </li>
+                    </ul>
+                    
+                  </div>
+                  <div class="clear"></div>
+            </div>
+          </div>
+        </div>  
+        <div class="wrap-box col-md-6 col-xs-6" style="padding:0" id="pos-5">
+          <div class="box" id="calendar">
+            <div id="app-calendar">
+               <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col m3">
+                                        <div id='external-events'>
+                                            <h5>Draggable Events</h5>
+                                            <div class="fc-events-container">
+                                                <div class='fc-event' data-color='#009688'>All Day Event</div>
+                                                <div class='fc-event' data-color='#4CAF50'>Long Event</div>
+                                                <div class='fc-event' data-color='#00bcd4'>Meeting</div>
+                                                <div class='fc-event' data-color='#ff5722'>Birthday party</div>
+                                                <div class='fc-event' data-color='#9c27b0'>Lunch</div>
+                                                <div class='fc-event' data-color='#e51c23'>Conference Meeting</div>
+                                                <div class='fc-event' data-color='#e91e63'>Party</div>
+                                                <div class='fc-event' data-color='#3f51b5'>Happy Hour</div>
+                                                <div class='fc-event' data-color='#ffc107'>Dance party</div>
+                                                <div class='fc-event' data-color='#4a148c'>Dinner</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m9">
+                                        <div id='fc-external-drag'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            </div><!-- START RIGHT SIDEBAR NAV -->
+          </div>
+        </div>
+     </div>  
+    </div>
+</body>
+<script>
+  $(document).ready(function(){
+     $('.bxslider').bxSlider(); // bxSlider load
+    var cmt = window.localStorage.getItem('comment');
+    document.getElementById("comment").value = cmt;
+   //News API
+    $.ajax({
+				url: 'https://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=dc3227abca344fedb2e6ce2e28edf6fa',
+				method:'GET',
+				cache: false,
+				async:true,
+			}).done(function( data ) {
+			  for(var i=0;i<7;i++) {
+          document.getElementById('article-box').innerHTML += '<a href=' + data.articles[i].url + '><div class="chat_list">' + data.articles[i].title + '</div></a>';
+        } 
+			}).fail(function() {
+				console.log( "network error" );
+			});
+
+      //Weather API
+      $.ajax({
+				url: 'http://api.openweathermap.org/data/2.5/forecast?q=London&APPID=ede1aaf7431ac8b13ddd80131849fb3b',
+				method:'GET',
+				cache: false,
+				async:true,
+			}).done(function( data ) {
+          // Get kelvin from Weather API
+          var today_temp_kelvin = data.list[0].main.temp;
+          //convert kelvin to Celsius
+          var today_temp_cel = Math.round(today_temp_kelvin -273.15);
+          //convert kelvin to Fahrenheit
+          var today_temp_fa = Math.round((today_temp_kelvin -273.15) * 9/5 + 32);
+          //Get "2019-05-07 09:00:00"
+          var today_time = data.list[1].dt_txt;
+          //Get "2019-05-07"
+          var t_date = today_time.split(" ");
+          //convert 2019-05-07 to Tuesday 7 May 2019
+          var today_date_format = formatDate(t_date[0]);
+          //Get today's weatherIcon
+          var today_weather_text = data.list[0].weather[0].main;
+          var today_weather_icon = GetWetherIcon(today_weather_text);
+
+          //Get list1_cel
+          var list1_kelvin = data.list[7].main.temp;
+          var list1_dt_txt = data.list[7].dt_txt;
+          var list1_day = GetDayFormformatDate(list1_dt_txt);
+          //convert kelvin to Celsius
+          var list1_cel = Math.round(list1_kelvin -273.15);
+          //Get today's weatherIcon
+          var list1_weather_text = data.list[7].weather[0].main;
+          var list1_weather_icon = GetWetherIcon(list1_weather_text);
+          
+          
+          //Get list2_cel
+          var list2_kelvin = data.list[15].main.temp;
+          var list2_dt_txt = data.list[15].dt_txt;
+          var list2_day = GetDayFormformatDate(list2_dt_txt);
+           //convert kelvin to Celsius
+          var list2_cel = Math.round(list2_kelvin -273.15);
+          //Get today's weatherIcon
+          var list2_weather_text = data.list[15].weather[0].main;
+          var list2_weather_icon = GetWetherIcon(list2_weather_text);
+
+
+           //Get list3_cel
+          var list3_kelvin = data.list[23].main.temp;
+          var list3_dt_txt = data.list[23].dt_txt;
+          var list3_day = GetDayFormformatDate(list3_dt_txt);
+           //convert kelvin to Celsius
+          var list3_cel = Math.round(list3_kelvin -273.15);
+          //Get today's weatherIcon
+          var list3_weather_text = data.list[23].weather[0].main;
+          var list3_weather_icon = GetWetherIcon(today_weather_icon);
+
+
+          //insert Celsius in the #today_cel
+          document.getElementById('today_cel').innerHTML += today_temp_cel + '°C';                 
+          document.getElementById('today_temp').innerHTML += today_temp_cel + '°C';                 
+          //insert Fahrenheit in the #today_fa
+          document.getElementById('today_fa').innerHTML += '<span>'+ today_temp_fa + '</span>°F';
+          //insert Date in the #showDate
+          document.getElementById('showDate').innerHTML += today_date_format;
+          document.getElementsByTagName("canvas")[0].setAttribute('id',today_weather_icon);
+          
+          //insert list1_cel
+          document.getElementById('list_cel1').innerHTML += list1_cel + '°C';
+          document.getElementById('list_day1').innerHTML += list1_day;
+          //document.getElementsByTagName("canvas")[1].setAttribute('id',list1_weather_icon);
+
+          
+          //insert list2_cel
+          document.getElementById('list_cel2').innerHTML += list2_cel + '°C';
+          document.getElementById('list_day2').innerHTML += list2_day;
+          //document.getElementsByTagName("canvas")[2]. ('id',list2_weather_icon);
+
+          
+          //insert list3_cel
+          document.getElementById('list_cel3').innerHTML += list3_cel + '°C';
+          document.getElementById('list_day3').innerHTML += list3_day;
+          document.getElementsByTagName("canvas")[3].setAttribute('id',list3_weather_icon);
+
+          //Weather Icon
+          var icons = new Skycons({"color": "#fff"}),
+              list  = [
+              "partly-cloudy-day"
+              ],
+              i;
+            for(i = list.length; i--; )
+            icons.set(list[i], list[i]);
+            icons.play();
+            var icons = new Skycons({"color": "#fff"}),
+              list  = [
+              "clear-night","partly-cloudy-night", "cloudy", "clear-day", "sleet", "snow", "wind","fog","rain", "cloud-sun-rain", "clear-day"
+              ],
+              i;
+              for(i = list.length; i--; )
+              icons.set(list[i], list[i]);
+              icons.play();
+      }).fail(function() {
+				  console.log( "network error" );
+			});
+    
+   });
+   
+  // when edit button is clicked 
+   function validateUser(){
+       $( "#sticky textarea" ).addClass( "active" );
+       document.getElementsByName("comment")[0].disabled=false;
+   }
+   
+   // when save button is clicked 
+   function commentSave() {
+     var val = $.trim($("textarea").val());
+     window.localStorage.setItem('comment', val);
+   }
+   
+   // convert 2019-05-07 to Tuesday 7 May 2019
+   function formatDate(userDOB) {
+      const dob = new Date(userDOB);
+      const monthNames = [
+        'January', 'February', 'March',
+        'April', 'May', 'June', 'July',
+        'August', 'September', 'October',
+        'November', 'December'
+      ];
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const day = dob.getDate();
+      const wday = dob.getDay();
+      const monthIndex = dob.getMonth();
+      const year = dob.getFullYear();
+      return `${days[wday]} ${day} ${monthNames[monthIndex]} ${year}`;
+    }
+
+    function GetDayFormformatDate(date) {
+      var t_date = date.split(" ");
+      var date_format = formatDate(t_date[0]);
+      var day = date_format.split(" ");
+      return `${day[0]}`;
+    }
+    
+    function GetWetherIcon(weatherText) {
+      switch (weatherText) {
+        case 'Rain':
+            weatherIcon = "rain";
+          break;
+        case 'Clouds':
+            weatherIcon = "cloudy";
+          break;
+        case 'Clear':
+             weatherIcon = "clear-day";
+          break;
+        case 'Snow':
+            weatherIcon = "snow";
+          break;  
+        default:
+          weatherIcon = "clear-day";
+      }
+      return weatherIcon;
+    }
+
+    
+</script>
+</html>

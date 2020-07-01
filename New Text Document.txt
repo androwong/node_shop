@@ -1,0 +1,43 @@
+//   $wrapper = $('.wrap-box');
+  //   $box = $('.box');
+
+  //   $wrapper.mousedown(function(e){
+  //     target_wrapper = $(this);
+  //   });
+
+  //   $box.draggable({
+  //     cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+  //     revert: "invalid", // when not dropped, the item will revert back to its initial position
+  //     containment: "document",
+  //     helper: "clone",
+  //     cursor: "move"
+  //   });
+
+  //   $wrapper.droppable({
+  //     classes: {
+  //       "ui-droppable-active": "ui-state-active",
+  //       "ui-droppable-hover": "ui-state-hover"
+  //     },
+  //     drop: function( event, ui ) {
+  //       replace_box( ui.draggable, $(this) );
+  //     }
+  //   });
+ 
+  // });
+  // function replace_box($item, $wrapper) {
+  //   target_wrapper.html($wrapper.html());
+    //$item.fadeOut(function() {
+      // $wrapper.html('');
+      // $item.fadeIn(300).appendTo($wrapper);
+      // $.ajax {
+
+      // }
+      //location.reload();
+    //});
+  //}
+  // $(document).mousemove(function(e){
+  //   if(clicking == false) return;
+  // })
+  // $(document).mouseup(function(e){
+  //     clicking = false;
+  //     target_wrapper = null;
